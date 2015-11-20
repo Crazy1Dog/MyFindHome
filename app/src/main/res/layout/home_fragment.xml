@@ -35,11 +35,23 @@
             android:layout_height="30dp"
             android:background="@mipmap/ic_yao_houseinfo" />
     </LinearLayout>
-    <ListView
-        android:id="@+id/lv_home"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#fff">
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lv_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff">
+        </ListView>
+        <firstdemo.xll.com.myfindhome.views.WiatView
+            android:id="@+id/wv_waitView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
-    </ListView>
+        </firstdemo.xll.com.myfindhome.views.WiatView>
+
+    </FrameLayout>
+
 </LinearLayout>

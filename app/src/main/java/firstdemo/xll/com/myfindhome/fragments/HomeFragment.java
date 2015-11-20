@@ -27,6 +27,7 @@ import firstdemo.xll.com.myfindhome.utils.JsonUtil;
 import firstdemo.xll.com.myfindhome.utils.SharepUtil;
 import firstdemo.xll.com.myfindhome.utils.VolleyUtil;
 import firstdemo.xll.com.myfindhome.views.HeadNavView;
+import firstdemo.xll.com.myfindhome.views.WiatView;
 
 /**
  * Created by steven on 2015/11/17.
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment implements VolleyUtil.OnRequest {
     public static final int  RESULT_CODE = 0x001;
     public static final int  REQUEST_CODE = 0x002;
     private static final String TAG = "print";
+    private WiatView wv;
     private HeadNavView headNavView;
     private View headView2;
     private NewsAdapter newsAdapter;
@@ -70,6 +72,7 @@ public class HomeFragment extends Fragment implements VolleyUtil.OnRequest {
      * @param view
      */
     private void initView(View view) {
+        wv = (WiatView) view.findViewById(R.id.wv_waitView);
         lv_home = (ListView) view.findViewById(R.id.lv_home);
         headNavView = new HeadNavView(getActivity(),getFragmentManager());
         LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -108,6 +111,7 @@ public class HomeFragment extends Fragment implements VolleyUtil.OnRequest {
 
     private void updateData(int cityid) {
         if(cityid != -1){
+            wv.start();
             String  url = String.format(Constants.URL.HOME_NEWS_URL,10,0,0,cityid);
             VolleyUtil.requestString(url, this);
             headNavView.setCityid(cityid);
@@ -126,6 +130,7 @@ public class HomeFragment extends Fragment implements VolleyUtil.OnRequest {
         Log.e(TAG,response);
         List<NewEntity> datas = JsonUtil.getNewsByJSON(response);
         newsAdapter.setDatas(datas);
+        wv.stop();
     }
 
     /**
