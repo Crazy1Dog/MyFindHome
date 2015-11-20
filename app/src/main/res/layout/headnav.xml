@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:orientation="vertical">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0f0">
+    </android.support.v4.view.ViewPager>
+    <firstdemo.xll.com.myfindhome.views.ImgNavView
+        android:id="@+id/ivg_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="10dp"
+        app:checkedimg = "@mipmap/img_dot_white"
+        app:uncheckedimg = "@mipmap/img_dot_gray">
+
+    </firstdemo.xll.com.myfindhome.views.ImgNavView>
+
+</FrameLayout>
